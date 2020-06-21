@@ -1,15 +1,9 @@
-# Expense Tracker (React)
-
-This is a React version of the [vanilla JS Expense Tracker](https://github.com/bradtraversy/vanillawebprojects/tree/master/expense-tracker). It uses functional components with hooks and the context API
-
-## Usage
-```
-npm install
-
-# Run on http://localhost:3000
-npm start
-
-# Build for prod
-npm run build
-```
-
+Expense Tracker app -- with currency toggler between dollar and pak rupee.
+<br>
+<b>Screenshots:</b> 
+<br>
+<img src="image/1.png" width="350" />
+<br>
+<img src="image/2.png" width="350" />
+<br>
+<img src="image/3.png" width="350" />
