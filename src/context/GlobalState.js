@@ -1,11 +1,13 @@
-import React, { createContext, useReducer } from 'react';
-import AppReducer from './AppReducer';
+import React, { createContext, useReducer } from "react";
+import AppReducer from "./AppReducer";
 
 // Initial state
 const initialState = {
-  transactions: []
-}
-
+  difference: 167.0,
+  currentCurrency: "dollar",
+  sign: "$",
+  transactions: [],
+};
 // Create context
 export const GlobalContext = createContext(initialState);
 
@@ -16,23 +18,36 @@ export const GlobalProvider = ({ children }) => {
   // Actions
   function deleteTransaction(id) {
     dispatch({
-      type: 'DELETE_TRANSACTION',
-      payload: id
+      type: "DELETE_TRANSACTION",
+      payload: id,
     });
   }
 
   function addTransaction(transaction) {
     dispatch({
-      type: 'ADD_TRANSACTION',
-      payload: transaction
+      type: "ADD_TRANSACTION",
+      payload: transaction,
+    });
+  }
+  function changeCurrency(currency) {
+    dispatch({
+      type: "CHANGE_CURRENCY",
+      payload: currency,
     });
   }
 
-  return (<GlobalContext.Provider value={{
-    transactions: state.transactions,
-    deleteTransaction,
-    addTransaction
-  }}>
-    {children}
-  </GlobalContext.Provider>);
-}
+  return (
+    <GlobalContext.Provider
+      value={{
+        transactions: state.transactions,
+        currentCurrency: state.currentCurrency,
+        sign: state.sign,
+        deleteTransaction,
+        addTransaction,
+        changeCurrency,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
+};
